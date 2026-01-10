@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import bImg from "../../../public/istock-1276811978.1920x0.jpg"
+import Link from 'next/link';
 
 const Banner = () => {
   return (
@@ -30,13 +31,17 @@ const Banner = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Link href={"#all-services"}>
             <button className="btn btn-primary btn-lg px-8 text-white rounded-2xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all group">
               Explore Services 
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
+            </Link>
+            <Link href={"#about"}>
             <button className="btn btn-outline btn-lg px-8 rounded-2xl border-2 hover:bg-gray-50 hover:text-primary">
               Watch How It Works
             </button>
+            </Link>
           </div>
           
           {/* Trust Metrics in Banner */}

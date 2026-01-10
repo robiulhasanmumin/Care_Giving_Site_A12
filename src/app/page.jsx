@@ -1,10 +1,10 @@
  import AboutPage from "@/components/home/About";
-import AllServices from "@/components/home/AllServices";
-import  Banner  from "@/components/home/Banner";
+  import  Banner  from "@/components/home/Banner";
 import Testimonials from "@/components/home/Testmonials";
+import ServicePage from "./services/page";
  
- export default function Home() {
-  return (
+ export default async function Home() {
+   return (
     <div>
       <section>
         <Banner></Banner>
@@ -13,7 +13,8 @@ import Testimonials from "@/components/home/Testmonials";
         <AboutPage></AboutPage>
       </section>
       <section>
-        <AllServices></AllServices>
+        {/* <AllServices allServices={allServices}></AllServices> */}
+        <ServicePage></ServicePage>
       </section>
       <section>
         <Testimonials></Testimonials>
