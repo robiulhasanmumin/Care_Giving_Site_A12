@@ -33,7 +33,7 @@ const ServiceDetails = async ({ params }) => {
           <img 
             src={service.image} 
             alt={service.title} 
-            className="w-full h-[450px] object-cover rounded-2xl shadow-lg"
+            className="w-full md:h-[450px] h-[250px] object-cover rounded-2xl shadow-lg"
           />
         </div>
 
@@ -48,7 +48,7 @@ const ServiceDetails = async ({ params }) => {
             </div>
           </div>
 
-          <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="md:text-5xl text-4xl font-extrabold text-gray-900 leading-tight">
             {service.title}
           </h1>
 

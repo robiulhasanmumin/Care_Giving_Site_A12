@@ -32,7 +32,7 @@ const AboutPage = () => {
     <div className="bg-base-100" id='about'>
        <section className="py-24 container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-2">Why Choose <span className='font-extrabold'>Care<span className='text-primary'>.People?</span></span> </h2>
+          <h2 className="text-3xl font-bold mb-3">Why Choose <span className='font-extrabold'>Care<span className='text-primary'>.People?</span></span> </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">We provide a wide range of services tailored to meet the unique needs of your family members with professionalism and empathy.</p>
         </div>
 

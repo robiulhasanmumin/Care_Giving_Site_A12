@@ -14,7 +14,7 @@ export const AllServices = ({ allServices }) => {
  
   return (
     <div className="container mx-auto py-10 px-4" id="all-services">
-      <h2 className="text-4xl font-bold text-center mb-8">
+      <h2 className="text-3xl font-bold text-center mb-8">
         Our <span className="text-primary">Services</span>
       </h2>
 {/* category */}

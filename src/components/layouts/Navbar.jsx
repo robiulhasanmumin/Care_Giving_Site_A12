@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from './Logo'
 import NavLink from '../buttons/NavLink'
+import Link from 'next/link'
+import AuthButtons from '../buttons/AuthButtons'
 // import Link from 'next/link'
 // import { MdShoppingCart } from "react-icons/md";
 // import AuthButtons from '../buttons/AuthButtons';
@@ -32,9 +34,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end space-x-4">
-    {/* <Link href={"/cart"} className='btn btn-primary'><MdShoppingCart className='text-xl'></MdShoppingCart></Link> */}
-    {/* <AuthButtons></AuthButtons> */}
-    <button className='btn btn-primary'>LogIn</button>
+    <AuthButtons></AuthButtons>
+     {/* <Link href={"/login"} className='btn btn-primary text-[16px]'>Log In</Link> */}
   </div>
 </div>
 
