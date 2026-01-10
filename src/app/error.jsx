@@ -21,7 +21,7 @@ export default function Error({ reset }) {
           
           <button
             onClick={() => (window.location.href = "/")}
-            className="btn btn-outline btn-error gap-2"
+            className="btn btn-outline btn-primary gap-2"
           >
             <FaHome /> Go to Home
           </button>

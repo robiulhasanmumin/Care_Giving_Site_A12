@@ -10,7 +10,7 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div className="card bg-base-100 shadow-md border border-gray-200 hover:  transition-all duration-300">
-            <figure className="h-52 overflow-hidden">
+            <figure className="h-56 overflow-hidden">
                 <img
                      src={image} 
                     alt={title} 
