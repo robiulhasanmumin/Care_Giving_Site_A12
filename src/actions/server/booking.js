@@ -1,6 +1,7 @@
 "use server"
 
 import { collections, dbConnect } from "@/lib/dbConnect"
+import { sendInvoiceEmail } from "@/lib/sendEmail";
 import { ObjectId } from "mongodb";
 
 export const createBooking=async(bookingData)=>{
@@ -11,6 +12,7 @@ export const createBooking=async(bookingData)=>{
       createdAt: new Date(),
      })
      if (result.acknowledged) {
+      await sendInvoiceEmail(bookingData);
       return { success: true, id: result.insertedId.toString() };
     }
     return { success: false };

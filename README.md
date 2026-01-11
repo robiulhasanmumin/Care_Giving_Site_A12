@@ -29,7 +29,7 @@
 
 To run this project locally, follow the steps below:
 
-### 1. Clone the repository
-```bash
-git clone [https://github.com/your-username/care-people.git](https://github.com/your-username/care-people.git)
-cd care-people
+### 1. Clone this repository
+### 2. Run `npm install`
+### 3. Start the development server with `npm run dev`
+### 4. Open your browser and visit the local server link shown in the terminal

@@ -43,13 +43,13 @@ const BookingTable = ({ initialBookings }) => {
         <tbody>
           {bookings.map((booking) => (
             <tr key={booking._id}>
-              <td className="font-bold text-[16px]">{booking.serviceName}</td>
+              <td className="font-bold md:text-[18px]">{booking.serviceName}</td>
               <td className='text-[16px]'>{booking.duration} Days</td>
               <td>
                 <span className=" block font-semibold text-[16px]">{booking.location.division}</span>
                 <span className="text-xs text-gray-500 text-[15px]">{booking.location.district}</span>
               </td>
-              <td className="font-bold text-primary text-[16px]">${booking.totalCost}</td>
+              <td className="font-bold text-primary text-[18px]">${booking.totalCost}</td>
               <td>
                 <span className={`badge badge-sm font-bold p-3 
                   ${booking.status === 'Pending' ? 'badge-warning' : 
@@ -58,8 +58,7 @@ const BookingTable = ({ initialBookings }) => {
                 </span>
               </td>
               <td className="flex justify-center gap-2">
-                {/* View Button - মডাল ওপেন করবে */}
-                <button 
+                 <button 
                   onClick={() => setSelectedBooking(booking)} 
                   className="btn btn-primary btn-outline"
                 >

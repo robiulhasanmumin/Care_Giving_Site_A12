@@ -39,12 +39,12 @@ const AuthButtons = () => {
         session?.user ? (
           <button 
             onClick={handleLogout} 
-            className="btn btn-error btn-outline text-[18px]"
+            className="btn btn-error btn-outline text-[16px]"
           >
             Logout
           </button>
         ) : (
-          <Link href="/login" className="btn btn-primary text-[18px]">
+          <Link href="/login" className="btn btn-primary text-[16px]">
             Login
           </Link>
         )
