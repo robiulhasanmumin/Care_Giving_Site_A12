@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { collections, dbConnect } from "@/lib/dbConnect";
 import bcrypt from "bcryptjs";
 
-const handler = NextAuth({
+ export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -13,10 +13,16 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       async authorize(credentials) {
-        const db = dbConnect(collections.USERS);
+         const db = await dbConnect(collections.USERS);
         const user = await db.findOne({ email: credentials.email });
+        
         if (user && bcrypt.compareSync(credentials.password, user.password)) {
-          return user;
+          return {
+            id: user._id.toString(),
+            name: user.name,
+            email: user.email,
+            role: user.role
+          };
         }
         return null;
       },
@@ -25,7 +31,7 @@ const handler = NextAuth({
   callbacks: {
     async signIn({ user, account }) {
       if (account.provider === "google") {
-        const db = await dbConnect("users");
+        const db = await dbConnect(collections.USERS);  
         const exists = await db.findOne({ email: user.email });
         if (!exists) {
           await db.insertOne({
@@ -33,13 +39,24 @@ const handler = NextAuth({
             email: user.email,
             image: user.image,
             role: "user",
+            provider: "google",
+            createdAt: new Date()
           });
         }
       }
       return true;
     },
+
+     async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.sub;
+      }
+      return session;
+    }
   },
   pages: { signIn: "/login" },
-});
+  secret: process.env.NEXTAUTH_SECRET,
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

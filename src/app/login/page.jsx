@@ -2,12 +2,15 @@
 import React from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
  import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const router = useRouter();
+    const params = useSearchParams()
+  const callback = params.get("callbackUrl") || "/"
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,11 +23,11 @@ const LoginPage = () => {
       didOpen: () => { Swal.showLoading(); }
     });
 
-    // NextAuth signIn call
-    const res = await signIn("credentials", {
+     const res = await signIn("credentials", {
       email,
       password,
       redirect: false,  
+      callbackUrl: callback,
     });
 
     if (res?.error) {
@@ -40,7 +43,7 @@ const LoginPage = () => {
         timer: 1000,
         showConfirmButton: false,
       }).then(() => {
-        router.push("/"); 
+        router.push(callback); 
         router.refresh(); 
       });
     }
@@ -56,7 +59,7 @@ const handleGoogleLogin = async () => {
   });
 
    try {
-    await signIn("google", { callbackUrl: "/" });
+    await signIn("google", { callbackUrl: callback });
    } catch (error) {
     Swal.fire({
       icon: "error",

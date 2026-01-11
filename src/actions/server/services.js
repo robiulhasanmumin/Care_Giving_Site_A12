@@ -3,8 +3,7 @@
 import { collections, dbConnect } from "@/lib/dbConnect"
 import { ObjectId } from "mongodb"
 
-// actions/server/services.js
-export const getServices = async () => {
+ export const getServices = async () => {
   try {
     const servicesCollection = dbConnect(collections.SERVICES);
     const services = await servicesCollection.find().toArray();

@@ -1,14 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
 import { postUser } from "@/actions/server/auth";
-import { signIn } from "next-auth/react"; // এটি অবশ্যই লাগবে
+import { signIn } from "next-auth/react"; 
 
 const RegisterPage = () => {
   const router = useRouter();
   const [err, setErr] = useState('');
+    const params = useSearchParams()
+  const callback = params.get("callbackUrl") || "/"
+
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -37,8 +40,7 @@ const RegisterPage = () => {
       const result = await postUser(userData);
 
       if (result?.success) {
-        // রেজিস্ট্রেশন সফল হলে অটোমেটিক লগইন
-        const loginRes = await signIn("credentials", {
+         const loginRes = await signIn("credentials", {
           email,
           password,
           redirect: false,
@@ -51,9 +53,9 @@ const RegisterPage = () => {
             text: "Redirecting to booking...",
             showConfirmButton: false,
             timer: 1000
-          }).then(() => router.push("/")); // এখানে আপনার বুকিং বা সার্ভিস পেজ দিন
+          }).then(() => router.push(callback)); 
         } else {
-          router.push("/login"); // লগইন ফেইল করলে লগইন পেজে পাঠান
+          router.push("/login");  
         }
       } else {
         Swal.fire({ 
