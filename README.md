@@ -1,5 +1,7 @@
 # 🏠 Care.People - Compassionate Caregiving Services
 
+### Live URL : https://care-giving-site.vercel.app/
+
 **Care.People** is a modern, responsive full-stack web application built with **Next.js 15** and **MongoDB**. It is designed to connect families with professional caregivers providing services such as Baby Sitting, Elderly Care, and Medical Support.
 
 ---
