@@ -10,9 +10,8 @@
 ## 📸 Project Overview
 A specialized platform where users can browse, filter, and book professional caregiving services with a seamless user experience.
 
-![Project Screenshot](https://i.ibb.co/your-image-link.png) 
-*(Note: Replace with your actual project screenshot)*
-
+![Project Screenshot](public/careSS.PNG) 
+ 
 ---
 
 ## ✨ Key Features
