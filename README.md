@@ -49,7 +49,7 @@ Follow these steps to set up the project on your machine:
 
 ### 1. Clone the repository:
 ```bash
-git clone [https://github.com/your-username/care-people.git](https://github.com/your-username/care-people.git)
-cd care-people
+git clone https://github.com/robiulhasanmumin/Care_Giving_Site_A12.git
+cd Care_Giving_Site_A12
 npm install
 npm run dev
